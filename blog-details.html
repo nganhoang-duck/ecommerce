@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nhóm 6</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <script>
+        function Comment() {
+            var name = document.forms["postComment"]["name"].value;
+            var email = document.forms["postComment"]["email"].value;
+            var phone = document.forms["postComment"]["phone"].value;
+            var cmt = document.forms["postComment"]["cmt"].value;
+
+            if (name == "" || email == "" || phone == "" || cmt == "") {
+                alert("Vui lòng nhập đủ các trường!");
+                return false;
+            }
+            else if (email.includes("@gmail.com") == false) {
+                alert("Email sai định dạng!");
+                return false;
+            }
+            else if (isNaN(phone) == true) {
+                alert("Số điện thoại không hợp lệ!");
+                return false;
+            }
+            else if (phone.length != 10) {
+                alert("Nhập số điện thoại có 10 số!");
+                return false;
+            }
+            else if (phone.startsWith("0") == false) {
+                alert("Số điện thoại phải bắt đầu với 0");
+                return false;
+            }
+            else {
+                alert("Bình luận đã được đăng!");
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__option">
+            <div class="offcanvas__links">
+                <a href="signin.html">Đăng nhập</a>
+            </div>
+            <div class="offcanvas__top__hover">
+                <span>VND<i class="arrow_carrot-down"></i></span>
+                <ul>
+                    <li>USD</li>
+                    <li>EUR</li>
+                    <li>VND</li>
+                </ul>
+            </div>
+        </div>
+        <div class="offcanvas__nav__option">
+            <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+            <a href="#"><img src="img/icon/heart.png" alt=""></a>
+            <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+            <div class="price">0</div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__text">
+            <p>Miễn phí ship. Đổi trả hàng trong vòng 30 ngày.</p>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-7">
+                        <div class="header__top__left">
+                            <p>Miễn phí ship. Đổi trả hàng trong vòng 30 ngày.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="header__top__right">
+                            <div class="header__top__links">
+                                <a href="signin.html">Đăng nhập</a>
+                            </div>
+                            <div class="header__top__hover">
+                                <span>VND<i class="arrow_carrot-down"></i></span>
+                                <ul>
+                                    <li>USD</li>
+                                    <li>EUR</li>
+                                    <li>VND</li>
+                                </ul>
+                            </div>
+                            <div class="header__top__hover">
+                                <a href="admin.html"><i class="fa fa-user"
+                                        style="color:white; margin-left: 15px;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="./index.html">Trang chủ</a></li>
+                            <li><a href="./shop.html">Cửa hàng</a></li>
+                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="./contact.html">Liên hệ</a></li>
+                            <li><a href="./about.html">Giới thiệu</a></li>
+                            <li class="active"><a href="#">Trang khác</a>
+                                <ul class="dropdown">
+                                    <li><a href="./shop-details.html">Chi tiết sản phẩm</a></li>
+                                    <li><a href="./shopping-cart.html">Giỏ hàng</a></li>
+                                    <li><a href="./checkout.html">Thanh toán</a></li>
+                                    <li><a href="./blog-details.html">Chi tiết bài viết</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__nav__option">
+                        <a href="#"><img src="img/icon/search.png" alt=""></a>
+                        <a href="#"><img src="img/icon/heart.png" alt=""></a>
+                        <a href="shopping-cart.html"><img src="img/icon/cart.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Blog Details Hero Begin -->
+    <section class="blog-hero spad">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-9 text-center">
+                    <div class="blog__hero__text">
+                        <h2>Bí kíp phối đồ trang phục noel cho nàng nổi bật nhất đám đông...</h2>
+                        <ul>
+                            <li>Viết bởi A</li>
+                            <li>21 / 02 / 2022</li>
+                            <li>8 bình luận</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Hero End -->
+
+    <!-- Blog Details Section Begin -->
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-12">
+                    <div class="blog__details__pic">
+                        <img src="img/blog/details/blog-details.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="blog__details__content">
+                        <div class="blog__details__share">
+                            <span>share</span>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="youtube"><i class="fa fa-youtube-play"></i></a></li>
+                                <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="blog__details__text">
+                            <p>Màu sắc đầu tiên mà chúng tôi muốn gửi đến bạn chính là gam màu đỏ quen thuộc nhưng lại
+                                được ưu tiên hơn cả. Gam màu này thể hiện sự vui vẻ, may mắn và chúng thường được
+                                xuất hiện trong các dịp lễ noel. </p>
+                            <p>Màu sắc tiếp theo không thể không kể đến chính là màu xanh lá cây.
+                                Với ưu điểm không quá rực rỡ như đỏ nhưng vẫn không làm mất đi vẻ đẹp của một mùa Giáng
+                                sinh trọn vẹn.
+                                Đây được xem là trang phục vô cùng hoàn hảo dành cho những ngày này đó nha.</p>
+                        </div>
+                        <div class="blog__details__quote">
+                            <i class="fa fa-quote-left"></i>
+                            <p>“Merry Christmas!!!”</p>
+                            <h6>_ From: Santa Clause _</h6>
+                        </div>
+                        <div class="blog__details__text">
+                            <p>3 màu sắc gồm đỏ, xanh, trắng và là tone màu chủ đạo.
+                                Nếu kết hợp với nhau sẽ tạo nên một không khí Giáng sinh vô cùng ý nghĩa mà khi nhìn vào
+                                ai cũng nhận ra.</p>
+                            <p>Những bộ họa tiết caro mix cùng đỏ, xanh, trắng,...
+                                cũng là sự kết hợp được vô số nhiều người sử dụng.
+                                Các bạn có thể chọn cho mình những chiếc chân váy kẻ caro,
+                                áo khoác hay những chiếc áo len hoặc khăn quàng cổ màu đỏ, trắng và xanh.</p>
+                        </div>
+                        <div class="blog__details__option">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="blog__details__author">
+                                        <div class="blog__details__author__pic">
+                                            <img src="img/blog/details/blog-author.jpg" alt="">
+                                        </div>
+                                        <div class="blog__details__author__text">
+                                            <h5>A______</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="blog__details__tags">
+                                        <a href="#">#Fashion</a>
+                                        <a href="#">#Trending</a>
+                                        <a href="#">#2022</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog__details__btns">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <a href="" class="blog__details__btns__item">
+                                        <p><span class="arrow_left"></span> Bài viết trước</p>
+                                        <h5>It S Classified How To Utilize Free Classified Ad Sites</h5>
+                                    </a>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <a href="" class="blog__details__btns__item blog__details__btns__item--next">
+                                        <p>Bài viết tiếp <span class="arrow_right"></span></p>
+                                        <h5>Tips For Choosing The Perfect Gloss For Your Lips</h5>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog__details__comment">
+                            <h4>Để lại bình luận</h4>
+                            <form name="postComment" onsubmit="return Comment()">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <input type="text" name="name" placeholder="Tên">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <input type="text" name="email" placeholder="Email">
+                                    </div>
+                                    <div class="col-lg-4 col-md-4">
+                                        <input type="text" name="phone" placeholder="Số điện thoại">
+                                    </div>
+                                    <div class="col-lg-12 text-center">
+                                        <textarea name="cmt" placeholder="Bình luận"></textarea>
+                                    </div>
+                                    <div class="col-lg-12 text-center">
+                                        <button type="submit" class="site-btn">Đăng</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                        <p>Khách hàng là cốt lõi của mô hình kinh doanh độc đáo của chúng tôi, bao gồm cả những thiết
+                            kế.</p>
+                        <a href="#"><img src="img/payment.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Shopping</h6>
+                        <ul>
+                            <li><a href="#">Quần áo</a></li>
+                            <li><a href="#">Giày hót tren</a></li>
+                            <li><a href="#">Phụ kiện</a></li>
+                            <li><a href="#">Hàng giảm giá</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Hỗ trợ khách hàng</h6>
+                        <ul>
+                            <li><a href="#">Liên hệ</a></li>
+                            <li><a href="#">Phương thức thanh toán</a></li>
+                            <li><a href="#">Vận chuyển</a></li>
+                            <li><a href="#">Trả hàng & Hoàn tiền</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                    <div class="footer__widget">
+                        <h6>Đôi lời gắm gửi</h6>
+                        <div class="footer__newslatter">
+                            <p>Hãy là người đầu tiên biết về những món hàng mới, lookbooks, đồ giảm giá và khuyến mãi!
+                            </p>
+                            <form action="#">
+                                <input type="text" placeholder="Your email">
+                                <button type="submit"><span class="icon_mail_alt"></span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="footer__copyright__text">
+                        <p>Copyright ©
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                            All rights reserved | Bài làm <i class="fa fa-heart-o" aria-hidden="true"></i> thiết kế bởi
+                            <a href="https://colorlib.com" target="_blank">Nhóm 6</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

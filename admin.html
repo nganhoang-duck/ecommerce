@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nhóm 6</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <style>
+        main ul li :hover {
+            background-color: black;
+            color: white;
+        }
+
+        main ul li {
+            border: 1px solid black;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <header class="header" style="margin-right: -600px">
+        <div class="align-items-center justify-content-end">
+            <nav id="navbar" class="navbar">
+                <a href="index.html" class="logo d-flex align-items-center"><img src="img/logo.png" alt=""></a>
+                <span class="nav-link" style="font-weight: bold; font-size: larger;"><i class="fa fa-user"></i> Xin
+                    chào, Admin</span>
+                <i class="mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </header>
+    <!-- Body -->
+    <main style="margin-top:50px;">
+
+        <nav class="col-md-3 mt-5" style="float: left; position: fixed;">
+            <h3 class="text-center p-1 font-weight-bold">DANH MỤC QUẢN LÝ</h3><br>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="admin.html" class="nav-link text-dark font-weight-bold"><i
+                            class="fa fa-product-hunt"></i> Quản lý sản phẩm <i class="fa fa-caret-right"></i></a></li>
+                <li class="nav-item"><a href="admin.html" class="nav-link text-dark font-weight-bold"><i
+                            class="fa fa-user"></i> Quản lý khách hàng</a></li>
+                <li class="nav-item"><a href="admin.html" class="nav-link text-dark font-weight-bold"><i
+                            class="fa fa-file"></i> Quản lý đơn hàng</a></li>
+                <li class="nav-item"><a href="" class="nav-link text-dark font-weight-bold"><i
+                            class="fa fa-comments"></i> Thông báo</a></li>
+                <li class="nav-item"><a href="" class="nav-link text-dark font-weight-bold"><i class="fa fa-cog"></i>
+                        Cài đặt</a></li>
+            </ul>
+        </nav>
+
+
+        <div class="col-md-9" style="float:right">
+            <h4 class="font-weight-bold">QUẢN LÝ SẢN PHẨM</h4>
+            <hr>
+            <div class="modal-header">
+                <h4 class="modal-title"><i class="fa fa-plus-square"></i> Thêm sản phẩm</h4>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label style="font-weight: bolder;">Tên Sản Phẩm:</label>
+                        <input type="text" class="form-control" v-model="product_name">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight: bolder;">Mã Sản Phẩm:</label>
+                        <input type="text" class="form-control" v-model="product_code">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight: bolder;">Số lượng:</label>
+                        <input type="text" class="form-control" v-model="number">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight: bolder;">Giá:</label>
+                        <input type="text" class="form-control" v-model="cost">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight: bolder;">Thuộc tính:</label><br>
+                        <label style="margin-left: 40px;">Màu:</label>
+                        <div style="margin-left: 80px;">
+                            <input type="checkbox" style="background-color: black;">
+                            <label for="black">Đen</label><br>
+                            <input type="checkbox">
+                            <label for="blue">Xanh than</label><br>
+                            <input type="checkbox">
+                            <label for="yellow">Vàng</label><br>
+                            <input type="checkbox">
+                            <label for="red">Đỏ</label><br>
+                            <input type="checkbox">
+                            <label for="green">Xanh lá</label><br>
+                            <input type="checkbox">
+                            <label for="gray">Xám</label><br>
+                            <input type="checkbox">
+                            <label for="brown">Nâu</label>
+                        </div>
+                        <label style="margin-left: 40px;">Size:</label>
+                        <div style="margin-left: 80px;">
+                            <input type="checkbox">
+                            <label for="xs">XS</label><br>
+                            <input type="checkbox">
+                            <label for="s">S</label><br>
+                            <input type="checkbox">
+                            <label for="m">M</label><br>
+                            <input type="checkbox">
+                            <label for="l">L</label><br>
+                            <input type="checkbox">
+                            <label for="xl">XL</label><br>
+                            <input type="checkbox">
+                            <label for="2xl">2XL</label><br>
+                            <input type="checkbox">
+                            <label for="3xl">3XL</label><br>
+                            <input type="checkbox">
+                            <label for="4xl">4XL</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-dark" @click="add()">Thêm</button>
+                    <button class="btn btn-dark" data-dismiss="modal">Hủy</button>
+                </form>
+            </div>
+
+            <table class="table table-bordered mt-3 bg-light">
+                <thead>
+                    <tr class="text-center">
+                        <th>STT</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Mã sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Thuộc tính</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <td>1</td>
+                        <td>Sản phẩm 1</td>
+                        <td>#001</td>
+                        <td>2</td>
+                        <td>100000 VNĐ</td>
+                        <td>Màu: ...; Size: ...</td>
+                        <td><a href=""><i class="fa fa-pencil"></i> | <i class="fa fa-trash"></i></a></td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>2</td>
+                        <td>Sản phẩm 2</td>
+                        <td>#002</td>
+                        <td>10</td>
+                        <td>150000 VNĐ</td>
+                        <td>Màu: ...; Size: ...</td>
+                        <td><a href=""><i class="fa fa-pencil"></i> | <i class="fa fa-trash"></i></a></td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>3</td>
+                        <td>Sản phẩm 3</td>
+                        <td>#003</td>
+                        <td>20</td>
+                        <td>300000 VNĐ</td>
+                        <td>Màu: ...; Size: ...</td>
+                        <td><a href=""><i class="fa fa-pencil"></i> | <i class="fa fa-trash"></i></a></td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>4</td>
+                        <td>Sản phẩm 4</td>
+                        <td>#004</td>
+                        <td>12</td>
+                        <td>120000 VNĐ</td>
+                        <td>Màu: ...; Size: ...</td>
+                        <td><a href=""><i class="fa fa-pencil"></i> | <i class="fa fa-trash"></i></a></td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>5</td>
+                        <td>Sản phẩm 5</td>
+                        <td>#005</td>
+                        <td>25</td>
+                        <td>70000 VNĐ</td>
+                        <td>Màu: ...; Size: ...</td>
+                        <td><a href=""><i class="fa fa-pencil"></i> | <i class="fa fa-trash"></i></a></td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>6</td>
+                        <td>Sản phẩm 6</td>
+                        <td>#006</td>
+                        <td>25</td>
+                        <td>350000 VNĐ</td>
+                        <td>Màu: ...; Size: ...</td>
+                        <td><a href=""><i class="fa fa-pencil"></i> | <i class="fa fa-trash"></i></a></td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>7</td>
+                        <td>Sản phẩm 7</td>
+                        <td>#007</td>
+                        <td>50</td>
+                        <td>400000 VNĐ</td>
+                        <td>Màu: ...; Size: ...</td>
+                        <td><a href=""><i class="fa fa-pencil"></i> | <i class="fa fa-trash"></i></a></td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>8</td>
+                        <td>Sản phẩm 8</td>
+                        <td>#008</td>
+                        <td>150</td>
+                        <td>100000 VNĐ</td>
+                        <td>Màu: ...; Size: ...</td>
+                        <td><a href=""><i class="fa fa-pencil"></i> | <i class="fa fa-trash"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul class="pagination" style="margin-left: 40%;">
+                <li class="page-item"><a href="" class="page-link text-dark">Trước</a></li>
+                <li class="page-item"><a href="" class="page-link text-dark">1</a></li>
+                <li class="page-item"><a href="" class="page-link text-dark">2</a></li>
+                <li class="page-item"><a href="" class="page-link text-dark">3</a></li>
+                <li class="page-item"><a href="" class="page-link text-dark">...</a></li>
+                <li class="page-item"><a href="" class="page-link text-dark">Sau</a></li>
+            </ul><br><br><br>
+        </div>
+        </div>
+    </main>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
